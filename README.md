@@ -5,6 +5,8 @@ An extension for Mediawiki to remove Red Links for users not logged in.
 Developed by Malte Ahrholdt for https://www.nordicnames.de
 Based on an orignal work by Chad Horohoe <innocentkiller@gmail.com>, 2009
 
+Status **beta**
+
 Purpose and Operation: 
 
 * This extension is for [Mediawiki](https://www.mediawiki.org/) installations
