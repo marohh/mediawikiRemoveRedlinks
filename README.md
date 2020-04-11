@@ -15,5 +15,5 @@ Purpose and Operation:
 Usage: 
 
 * extract into "extension/" folder of mediawiki installation
-* add  wfLoadExtension("RemoveRedlinks");
- to your LocalSettings.php
+* add  `wfLoadExtension("RemoveRedlinks");` to your LocalSettings.php
+* Disable parser cache in LocalSettings.php by `$wgParserCacheType = CACHE_NONE;`

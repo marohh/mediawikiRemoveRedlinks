@@ -19,23 +19,35 @@ namespace MediaWiki\Extension\RemoveRedlinks;
 class Hooks {
 
 	public static function onHtmlPageLinkRendererBegin(
-					\MediaWiki\Linker\LinkRenderer $linkRenderer,
-					\MediaWiki\Linker\LinkTarget $target,
-					&$text, &$extraAttribs, &$query,
-					&$ret )
- 	{
-		global $wgUser;
-		if ( $wgUser->isLoggedIn()) {
-			return true;
-		}
+						\MediaWiki\Linker\LinkRenderer $linkRenderer,
+						\MediaWiki\Linker\LinkTarget $target,
+						&$text, &$extraAttribs, &$query,
+						&$ret )
+	 	{
+			global $wgUser;
+			if ( $wgUser->isLoggedIn()) {
+				return true;
+			}
 
-		if( $target->isKnown() ) {
-			return true;
-		} else {
-			$ret =  $target->getText();
-			return false;
+			if (! $target instanceof \Title ) {
+				return true;
+			}
+
+			if( $target->isKnown() ) {
+				return true;
+			} else {
+				 $ret = \HtmlArmor::getHtml( $text );
+				 if ( $text instanceof \HtmlArmor ) {
+						$ret = \HtmlArmor::getHtml( $text );
+						# ... to retrieve title plain text
+				 }
+				 else {
+						$ret =  $target->getText();
+						# reconstruct from page title if HtmlArmor is not available,
+						# fall-back only, displays page title in case of re-named link
+				 };
+				 return false;
+			};
 		}
-	}
 }
-
 ?>
