@@ -49,5 +49,19 @@ class Hooks {
 				 return false;
 			};
 		}
+
+	public static function onPageRenderingHash(
+			&$confstr,
+			\User $user,
+			&$forOptions ) {
+
+			if ( $user->isLoggedIn()) {
+					$confstr .= "!userKnown";
+			}
+			else {
+				$confstr .= "!userUnknown";
+			}
+			return true;
+	}
 }
 ?>

@@ -16,7 +16,8 @@
 	"config": {
 	},
 	"Hooks": {
-		"HtmlPageLinkRendererBegin":  "MediaWiki\\Extension\\RemoveRedlinks\\Hooks::onHtmlPageLinkRendererBegin"
+		"HtmlPageLinkRendererBegin": "MediaWiki\\Extension\\RemoveRedlinks\\Hooks::onHtmlPageLinkRendererBegin",
+		"PageRenderingHash": "MediaWiki\\Extension\\RemoveRedlinks\\Hooks::onPageRenderingHash"
 	},
 	"MessagesDirs": {
 		"RemoveRedlinks": [

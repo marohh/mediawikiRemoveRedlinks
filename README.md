@@ -19,5 +19,3 @@ Usage:
 
 * extract "RemoveRedlinks" folder into "extension/" folder of Mediawiki installation
 * add  `wfLoadExtension("RemoveRedlinks");` to your LocalSettings.php
-* Disable parser cache in LocalSettings.php by `$wgParserCacheType = CACHE_NONE;`
-
