@@ -25,10 +25,13 @@ class Hooks {
 						&$ret )
 	 	{
 			global $wgUser;
-			if ( $wgUser->isLoggedIn()) {
-				return true;
+			if ($wgUser->isSafeToLoad())
+			{
+				if ( $wgUser->isLoggedIn()) {
+					return true;
+				}
 			}
-
+			
 			if (! $target instanceof \Title ) {
 				return true;
 			}
