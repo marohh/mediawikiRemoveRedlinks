@@ -13,8 +13,6 @@
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\RemoveRedlinks\\": "includes/"
 	},
-	"config": {
-	},
 	"Hooks": {
 		"HtmlPageLinkRendererBegin": "MediaWiki\\Extension\\RemoveRedlinks\\Hooks::onHtmlPageLinkRendererBegin",
 		"PageRenderingHash": "MediaWiki\\Extension\\RemoveRedlinks\\Hooks::onPageRenderingHash"
@@ -23,14 +21,6 @@
 		"RemoveRedlinks": [
 			"i18n"
 		]
-	},
-	"ResourceModules": {
-		"ext.RemoveRedlinks": {
-			"dependencies": [],
-			"messages": [],
-			"styles": [],
-			"scripts": []
-		}
 	},
 	"manifest_version": 2
 }
