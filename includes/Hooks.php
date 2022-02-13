@@ -16,6 +16,8 @@
 
 namespace MediaWiki\Extension\RemoveRedlinks;
 
+use RequestContext;
+
 class Hooks {
 
 	public static function onHtmlPageLinkRendererBegin(
@@ -24,10 +26,10 @@ class Hooks {
 						&$text, &$extraAttribs, &$query,
 						&$ret )
 	 	{
-			global $wgUser;
-			if ($wgUser->isSafeToLoad())
+			$user = RequestContext::getMain()->getUser();
+			if ($user->isSafeToLoad())
 			{
-				if ( $wgUser->isLoggedIn()) {
+				if ( $user->isRegistered()) {
 					return true;
 				}
 			}
@@ -58,7 +60,7 @@ class Hooks {
 			\User $user,
 			&$forOptions ) {
 
-			if ( $user->isLoggedIn()) {
+			if ( $user->isRegistered()) {
 					$confstr .= "!userKnown";
 			}
 			else {
