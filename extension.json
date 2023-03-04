@@ -1,26 +1,30 @@
 {
-	"name": "RemoveRedlinks",
-	"author": [
-		"Malte Ahrholdt"
-	],
-	"url": "https://www.mediawiki.org/wiki/Extension:RemoveRedlinks",
-	"descriptionmsg": "RemoveRedlinks-desc",
-	"license-name": "GPL-2.0-or-later",
-	"type": "parser",
-	"requires": {
-		"MediaWiki": ">= 1.34.0"
-	},
-	"AutoloadNamespaces": {
-		"MediaWiki\\Extension\\RemoveRedlinks\\": "includes/"
-	},
-	"Hooks": {
-		"HtmlPageLinkRendererBegin": "MediaWiki\\Extension\\RemoveRedlinks\\Hooks::onHtmlPageLinkRendererBegin",
-		"PageRenderingHash": "MediaWiki\\Extension\\RemoveRedlinks\\Hooks::onPageRenderingHash"
-	},
-	"MessagesDirs": {
-		"RemoveRedlinks": [
-			"i18n"
-		]
-	},
-	"manifest_version": 2
+  "name": "RemoveRedlinks",
+  "author": ["Malte Ahrholdt"],
+  "url": "https://www.mediawiki.org/wiki/Extension:RemoveRedlinks",
+  "descriptionmsg": "RemoveRedlinks-desc",
+  "license-name": "GPL-2.0-or-later",
+  "type": "parser",
+  "requires": {
+    "MediaWiki": ">= 1.34.0"
+  },
+  "AutoloadNamespaces": {
+    "MediaWiki\\Extension\\RemoveRedlinks\\": "includes/"
+  },
+  "Hooks": {
+    "HtmlPageLinkRendererEnd": "MediaWiki\\Extension\\RemoveRedlinks\\Hooks::onHtmlPageLinkRendererEnd"
+  },
+  "ResourceFileModulePaths": {
+    "localBasePath": "resources/",
+    "remoteExtPath": "RemoveRedlinks"
+  },
+  "ResourceModules": {
+    "ext.RemoveRedlinks.app": {
+      "scripts": ["ext.RemoveRedlinks.app/app.js"]
+    }
+  },
+  "MessagesDirs": {
+    "RemoveRedlinks": ["i18n"]
+  },
+  "manifest_version": 2
 }
