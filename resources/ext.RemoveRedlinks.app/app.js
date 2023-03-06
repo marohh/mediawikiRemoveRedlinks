@@ -2,7 +2,6 @@ if (mw.config.values.wgUserName !== null) {
   $("a[data-redlink-url]")
     .toArray()
     .forEach(function (element) {
-      console.log(element);
       element.href = atob(element.attributes["data-redlink-url"].value);
       element.attributes.removeNamedItem("data-redlink-url");
       element.attributes.removeNamedItem("style");
