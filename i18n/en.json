@@ -1,8 +1,6 @@
 {
-	"@metadata": {
-		"authors": [
-			"nordicnames.de  -- Malte Ahrholdt"
-		]
-	},
-	"RemoveRedlinks-desc": "This extension disables red links."
+  "@metadata": {
+    "authors": ["nordicnames.de  -- Malte Ahrholdt"]
+  },
+  "RemoveRedlinks-desc": "This extension disables red links."
 }
