@@ -26,6 +26,18 @@ class Hooks {
 			&$attribs,
 			&$ret 
 		) {
+			global $wgRemoveRedLinksAlsoLoggedInUsers;
+			if (!$wgRemoveRedLinksAlsoLoggedInUsers)
+			{
+				$user = RequestContext::getMain()->getUser();
+				if ($user->isSafeToLoad())
+				{
+					if ( $user->isRegistered()) {
+							return true;
+					}
+				}
+			}
+
 			if ( $isKnown ) {
 				return true;
 			}

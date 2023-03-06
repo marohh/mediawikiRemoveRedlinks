@@ -19,3 +19,9 @@ Usage:
 
 * extract "RemoveRedlinks" folder into "extension/" folder of Mediawiki installation
 * add  `wfLoadExtension("RemoveRedlinks");` to your LocalSettings.php
+
+Configuration (in LocalSettings.php)
+* `$wgRemoveRedLinksAlsoLoggedInUsers = true;` -- set if you want all internal red links to disappear, also for logged in users
+
+Limitation: 
+* In mediawiki 1.39, page caching may need to be disabled, otherwise visualization for logged-in and not-logged-in users may mix up.
