@@ -9,7 +9,6 @@
  * (at your option) any later version.
  *
  * @author Malte Ahrhodldt <nordicnames.de>
- * @author Collei <colleirose.github.io>
  * based on previous work Chad Horohoe <innocentkiller@gmail.com>
  * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License 2.0 or later
  */
@@ -23,6 +22,8 @@ class RemoveRedlinks {
 		&$attribs,
 		&$ret 
 	) {
+		global $wgRemoveRedLinksAlsoLoggedInUsers;
+		
 		if ( $isKnown || $target->isExternal()) {
 			return true;
 		}

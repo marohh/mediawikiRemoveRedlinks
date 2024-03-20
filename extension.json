@@ -19,5 +19,12 @@
     "HtmlPageLinkRendererEnd": "RemoveRedlinks::onHtmlPageLinkRendererEnd",
     "ParserOptionsRegister": "RemoveRedlinks::onParserOptionsRegister"
   },
+  "config_prefix": "wg",
+	"config": {
+		"RemoveRedLinksAlsoLoggedInUsers": {
+			"value": false,
+			"description": "Remove red links also for logged-in users, instead of only for unregistered users"
+		}
+  },
   "manifest_version": 1
 }
