@@ -20,11 +20,12 @@
     "ParserOptionsRegister": "RemoveRedlinks::onParserOptionsRegister"
   },
   "config_prefix": "wg",
-	"config": {
-		"RemoveRedLinksAlsoLoggedInUsers": {
-			"value": false,
-			"description": "Remove red links also for logged-in users, instead of only for unregistered users"
-		}
+  "config": {
+    "RemoveRedLinksAlsoLoggedInUsers": {
+      "value": false,
+      "public": true,
+      "description": "Remove red links also for logged-in users, instead of only for unregistered users"
+    }
   },
-  "manifest_version": 1
+  "manifest_version": 2
 }
