@@ -31,6 +31,11 @@ class RemoveRedlinks {
 		$parser = MediaWiki\MediaWikiServices::getInstance()->getParser();
 		$parserOptions = $parser->getOptions();
 
+		if ( !$parserOptions ) {
+			$parser->setOptions( ParserOptions::newFromContext( RequestContext::getMain() ) );
+			$parserOptions = $parser->getOptions();
+		}
+
 		if( $wgRemoveRedLinksAlsoLoggedInUsers || !$parserOptions->getOption( 'loggedin' ) ) {
 			unset( $attribs['href'] );
 			unset( $attribs['title'] );
