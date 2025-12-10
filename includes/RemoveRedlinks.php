@@ -15,15 +15,15 @@
 
 class RemoveRedlinks {
 	public static function onHtmlPageLinkRendererEnd(
-		\MediaWiki\Linker\LinkRenderer $linkRenderer, 
+		\MediaWiki\Linker\LinkRenderer $linkRenderer,
 		\MediaWiki\Linker\LinkTarget $target,
 		$isKnown,
 		&$text,
 		&$attribs,
-		&$ret 
+		&$ret
 	) {
 		global $wgRemoveRedLinksAlsoLoggedInUsers;
-		
+
 		if ( $isKnown || $target->isExternal()) {
 			return true;
 		}
@@ -31,12 +31,12 @@ class RemoveRedlinks {
 		$parser = MediaWiki\MediaWikiServices::getInstance()->getParser();
 		$parserOptions = $parser->getOptions();
 
-		if ( !$parserOptions ) {
+		if ( !$parserOptions && RequestContext::getMain()->getUser()->isSafeToLoad() ) {
 			$parser->setOptions( ParserOptions::newFromContext( RequestContext::getMain() ) );
 			$parserOptions = $parser->getOptions();
 		}
 
-		if( $wgRemoveRedLinksAlsoLoggedInUsers || !$parserOptions->getOption( 'loggedin' ) ) {
+		if( $wgRemoveRedLinksAlsoLoggedInUsers || ( $parserOptions !== null && !$parserOptions->getOption( 'loggedin' ) ) ) {
 			unset( $attribs['href'] );
 			unset( $attribs['title'] );
 			unset( $attribs['class'] );
